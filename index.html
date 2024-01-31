@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+</head>
+<body>
+    <h1>Hello world!</h1>
+
+    <div id="app">
+        <button @click="handleShowBook">
+            <span v-if="showBook">Hide Book</span>
+            <!-- <span v-if="!showBook">Show Book</span> -->
+            <span v-else>Show Book</span>
+        </button>
+        <div v-if="showBook">
+            <!-- <h2>Template here!</h2> -->
+            <!-- <p>The Final Empire</p> -->
+            <h2>v-if block</h2>
+            <p>{{ title }} - {{ author }} - Price: {{ price }}$ - {{ bought }} bought in last month</p>
+            <!-- onClick event -->
+            <button v-on:click="bought++">Buy</button>
+            <button v-on:click="bought--">Refund</button>
+            <!-- onClick event -->
+            <div @click="title = 'Words of Randiance'">Change book title</div>
+            <div @click="changeTitle('Light bringer')">Change book title from vue method</div>
+        </div>
+        <!-- v-if will remove the above div block from the DOM while v-show use css "display: none" instead
+        to hide the div block below -->
+        <div v-show="showBook">
+            <h2>v-show block</h2>
+            <p>{{ title }} - {{ author }} - Price: {{ price }}$ - {{ bought }} bought in last month</p>
+            <button v-on:click="bought++">Buy</button>
+            <button v-on:click="bought--">Refund</button>
+            <div @click="title = 'Words of Randiance'">Change book title</div>
+            <div @click="changeTitle('Light bringer')">Change book title from vue method</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
