@@ -29,31 +29,20 @@
             <!-- <h2>Template here!</h2> -->
             <!-- <p>The Final Empire</p> -->
             <h2>v-if block</h2>
-            <p>{{ title }} - {{ author }} - Price: {{ price }}$ - {{ bought }} bought in last month</p>
-            <!-- onClick event -->
-            <button v-on:click="bought++">Buy</button>
-            <button v-on:click="bought--">Refund</button>
-            <!-- onClick event -->
-            <div @click="title = 'Words of Randiance'">Change book title</div>
-            <div @click="changeTitle('Light bringer')">Change book title from vue method</div>
+            <p>{{ books[0].title }} - {{ books[0].author }} - Price: {{ books[0].price }}$</p>
+            <p>{{ books[1].title }} - {{ books[1].author }} - Price: {{ books[1].price }}$</p>
+            <p>{{ books[2].title }} - {{ books[2].author }} - Price: {{ books[2].price }}$</p>
         </div>
         <!-- v-if will remove the above div block from the DOM while v-show use css "display: none" instead
         to hide the div block below -->
         <div v-show="showBook">
             <h2>v-show block</h2>
-            <p>{{ title }} - {{ author }} - Price: {{ price }}$ - {{ bought }} bought in last month</p>
-            <button v-on:click="bought++">Buy</button>
-            <button v-on:click="bought--">Refund</button>
-            <div @click="title = 'Words of Randiance'">Change book title</div>
-            <div @click="changeTitle('Light bringer')">Change book title from vue method</div>
-        </div>
-        <!-- mouse event -->
-        <div class="box" @mouseover="handleMouseEvent($event, 5)">mouseover</div>
-        <div class="box" @mouseleave="handleMouseEvent">mouseleave</div>
-        <div class="box" @dblclick="handleMouseEvent">double click</div>
-        <div class="box" @mousemove="handleMouseMove">
-            mousemove<br/>
-            <span>position - X: {{x}} - Y: {{y}}</span>
+            <ul>
+                <li v-for="book in books">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }} - Price: {{ book.price }}$</p>
+                </li>
+            </ul>
         </div>
     </div>
 

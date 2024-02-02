@@ -4,33 +4,17 @@ const app = Vue.createApp({
     data() {
         return {
             showBook: true,
-            title: 'The Final Empire from data of vue app',
-            author: 'Brandon Sanderson',
-            price: '80',
-            bought: 1000,
-            x: 0,
-            y: 0,
+            books: [
+                { title: 'The Final Empire', author: 'Brandon Sanderson', price: '80'},
+                { title: 'Name of the wind', author: 'Patrick Rothfuss', price: '180'},
+                { title: 'Harry Potter', author: 'J.K. Rowling', price: '280'}
+            ],
         }
     },
     methods: {
-        changeTitle(title) {
-            // this.title = 'Words of Randiance';
-            this.title = title;
-        },
         handleShowBook() {
             this.showBook = !this.showBook;
         },
-        handleMouseEvent(e, data) {
-            console.log(e, e.type);
-            if(data)
-            {
-                console.log(data);
-            }
-        },
-        handleMouseMove(e) {
-            this.x = e.offsetX;
-            this.y = e.offsetY;
-        }
     }
 })
 
