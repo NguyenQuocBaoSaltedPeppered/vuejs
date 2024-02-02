@@ -50,6 +50,18 @@
                 </li>
             </ul>
         </div>
+        <div v-if="showBook">
+            Filtered books <br/>
+            <ul>
+                <li v-for="book in filteredBooks"
+                    :class="{ fav: book.isFav}"
+                    @click="toggleFav(book)"
+                >
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }} - Price: {{ book.price }}$</p>
+                </li>
+            </ul>
+        </div>
         <!-- attribute binding -->
         <a v-bind:href="url">Search tool</a>
         <br/>
