@@ -5,6 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello world!</h1>
@@ -36,6 +46,14 @@
             <button v-on:click="bought--">Refund</button>
             <div @click="title = 'Words of Randiance'">Change book title</div>
             <div @click="changeTitle('Light bringer')">Change book title from vue method</div>
+        </div>
+        <!-- mouse event -->
+        <div class="box" @mouseover="handleMouseEvent($event, 5)">mouseover</div>
+        <div class="box" @mouseleave="handleMouseEvent">mouseleave</div>
+        <div class="box" @dblclick="handleMouseEvent">double click</div>
+        <div class="box" @mousemove="handleMouseMove">
+            mousemove<br/>
+            <span>position - X: {{x}} - Y: {{y}}</span>
         </div>
     </div>
 
