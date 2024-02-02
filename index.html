@@ -6,13 +6,27 @@
     <title>Learning Vue</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <style>
-        .box {
-            padding: 100px 0;
-            width: 400px;
-            text-align: center;
-            background: #ddd;
-            margin: 20px;
-            display: inline-block;
+        body{
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+        p, h3, ul{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        li.fav{
+            background: #ff9ed2;
         }
     </style>
 </head>
@@ -26,24 +40,21 @@
             <span v-else>Show Book</span>
         </button>
         <div v-if="showBook">
-            <!-- <h2>Template here!</h2> -->
-            <!-- <p>The Final Empire</p> -->
-            <h2>v-if block</h2>
-            <p>{{ books[0].title }} - {{ books[0].author }} - Price: {{ books[0].price }}$</p>
-            <p>{{ books[1].title }} - {{ books[1].author }} - Price: {{ books[1].price }}$</p>
-            <p>{{ books[2].title }} - {{ books[2].author }} - Price: {{ books[2].price }}$</p>
-        </div>
-        <!-- v-if will remove the above div block from the DOM while v-show use css "display: none" instead
-        to hide the div block below -->
-        <div v-show="showBook">
-            <h2>v-show block</h2>
             <ul>
-                <li v-for="book in books">
+                <li v-for="book in books"
+                    :class="{ fav: book.isFav}"
+                    @click="toggleFav(book)"
+                >
                     <h3>{{ book.title }}</h3>
                     <p>{{ book.author }} - Price: {{ book.price }}$</p>
                 </li>
             </ul>
         </div>
+        <!-- attribute binding -->
+        <a v-bind:href="url">Search tool</a>
+        <br/>
+        <!-- attribute binding shorthand -->
+        <a :href="url">Search tool shorthand</a>
     </div>
 
     <script src="app.js"></script>
