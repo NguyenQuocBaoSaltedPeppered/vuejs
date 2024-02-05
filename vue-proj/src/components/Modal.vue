@@ -1,17 +1,31 @@
 <template>
-  <div class="backdrop">
-    <div class="modal">
-      <h1>Model title</h1>
-        <p>Modal content</p>
+  <!-- click event được modifie bằng modifier "self" để chỉ kích hoặc khi nhấn
+    vào chính element này không bao gôm element con của nó.
+  -->
+  <div class="backdrop" @click.self="closeModal">
+    <div class="modal" :class="{ sale: theme === 'sale' }">
+      <h1>{{ header }}</h1>
+      <p>{{ content }}</p>
     </div>
   </div>
 </template>
 
-<!-- <script>
+<script>
 export default {
-
+  props: ['header', 'content', 'theme'],
+  methods: {
+    // emit event
+    // gửi 1 event từ con lên cha, cha sẽ lắng nghe event đó và thực thi
+    // các hàm ở component cha khi sự kiện đó xảy ra.
+    // Ở đây, khi click tại modal, sự kiện closeModal diễn ra, gửi 1 sự kiện
+    // close lên cho component cha và component cha lắng nghe sự kiện close
+    // để sử lý.
+    closeModal() {
+      this.$emit('close')
+    },
+  }
 }
-</script> -->
+</script>
 
 <style scoped>
     .backdrop{
@@ -28,7 +42,14 @@ export default {
         background: white;
         border-radius: 10px;
     }
-    h1 {
+    .modal h1 {
       color: #03cfb4;
+    }
+    .modal.sale {
+      background: darkgreen;
+      color: white;
+    }
+    .modal.sale h1 {
+      color: white;
     }
 </style>
