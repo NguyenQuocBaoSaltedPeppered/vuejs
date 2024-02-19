@@ -7,6 +7,7 @@
 npm install @vue/cli-service -g
 ```
 
+### Then
 ```
 npm install
 ```
