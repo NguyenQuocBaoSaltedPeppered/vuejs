@@ -1,16 +1,35 @@
 <template>
   <h1>{{ title }}</h1>
+  <p>Welcome ...</p>
+
   <!-- Passing props with data bindings-->
   <div v-if="modal.show">
     <Modal
-    :header="modal.header"
-    :content="modal.content"
-    :theme="modal.theme"
-    @close="toggleModal"
-    />
+      :theme="modal.theme"
+      @close="toggleModal"
+    >
+      <!-- slot and Named slot -->
+      <template v-slot:links>
+        <a href="#">Sign up now!</a>
+        <a href="#">More information!</a>
+      </template>
+      <h1>Sign up for the Giveaway!</h1>
+      <p>Collect your 50% discount!</p>
+    </Modal>
   </div>
-  <p>Welcome ...</p>
+
+  <!-- Using teleport component -->
+  <Teleport to=".modals" v-if="modal2.show">
+    <Modal
+      @close="toggleModal2"
+    >
+      <h1>Sign up for the Giveaway!</h1>
+      <p>Collect your 50% discount!</p>
+    </Modal>
+  </Teleport>
+
   <button @click="toggleModal">Collect your discount!</button>
+  <button @click="toggleModal2">Open Modal2</button>
 </template>
 
 <script>
@@ -25,9 +44,10 @@ export default {
     return {
       title: "My first Vue App =)))",
       modal: {
-        header: "Sign up for the Giveaway!",
-        content: "Collect your 50% discount!",
         theme: 'sale',
+        show: false
+      },
+      modal2: {
         show: false
       }
     }
@@ -36,12 +56,15 @@ export default {
     toggleModal() {
       this.modal.show = !this.modal.show;
     },
+    toggleModal2() {
+      this.modal2.show = !this.modal2.show;
+    },
   }
 }
 </script>
 
 <style>
-#app {
+#app, .modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

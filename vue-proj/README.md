@@ -1,6 +1,12 @@
 # vue-proj
 
 ## Project setup
+
+### If you haven't install vue cli yet
+```
+npm install @vue/cli-service -g
+```
+
 ```
 npm install
 ```
