@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import JobsView from '../views/jobs/JobsView.vue'
 import JobDetails from '../views/jobs/JobDetails.vue'
+import ErrorNotFound from '../views/ErrorNotFound.vue'
 
 const routes = [
   {
@@ -29,6 +30,20 @@ const routes = [
     // Cho phép truyền parameters của route đó (id) vào component (JobDetails)
     // dưới dạng 1 prop
     props: true
+  },
+  // redirect
+  {
+    // Các đường dẫn truy cập vào '/all-jobs'
+    // sẽ được redirect đến '/jobs'
+    path: '/all-jobs',
+    redirect: '/jobs'
+  },
+  // catchall
+  {
+    // Khi các đường dẫn truy cập nằm ngoài các đường dẫn được liệt kê ở trên
+    // dùng cathAll vs regular expression (Regex)
+    path: '/:catchAll(.*)',
+    component: ErrorNotFound,
   }
 ]
 

@@ -10,8 +10,23 @@
     <router-link :to="{ name: 'about' }">About</router-link> |
     <router-link :to="{ name: 'jobs' }">Jobs</router-link>
   </nav>
+
+  <button @click="redirect">Redirect</button>
+  <button @click="goBack">Go Back</button>
+  <button @click="goFoward">Go Forward</button>
+
   <router-view/>
 </template>
+
+<script>
+export default {
+  methods: {
+    redirect() {},
+    goBack() {},
+    goFoward() {}
+  }
+}
+</script>
 
 <style>
 #app {
