@@ -1,4 +1,5 @@
 # locodedi-jobs
+A small project to learn about Vue Router
 
 ## Project setup
 ```
