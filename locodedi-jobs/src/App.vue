@@ -21,9 +21,15 @@
 <script>
 export default {
   methods: {
-    redirect() {},
-    goBack() {},
-    goFoward() {}
+    redirect() {
+      this.$router.push({ name: 'home'})
+    },
+    goBack() {
+      this.$router.go(-1);
+    },
+    goFoward() {
+      this.$router.go(1);
+    }
   }
 }
 </script>
@@ -52,5 +58,12 @@ nav a {
 nav a.router-link-exact-active {
   color: #fff;
   background: #42b983;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
 }
 </style>
