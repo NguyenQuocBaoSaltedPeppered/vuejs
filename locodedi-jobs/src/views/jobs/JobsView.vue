@@ -1,9 +1,14 @@
 <template>
     <h1>Jobs</h1>
-    <div v-for="job in jobs" :key="job.id" class="job">
-        <router-link :to="{ name: 'jobsDetail', params: { id: job.id }}">
-            <h2>{{ job.title }}</h2>
-        </router-link>
+    <div v-if="jobs.length">
+        <div v-for="job in jobs" :key="job.id" class="job">
+            <router-link :to="{ name: 'jobsDetail', params: { id: job.id }}">
+                <h2>{{ job.title }}</h2>
+            </router-link>
+        </div>
+    </div>
+    <div v-else>
+        <p>Loading all jobs at Locodedi</p>
     </div>
 </template>
 
@@ -11,12 +16,16 @@
 export default {
     data() {
         return {
-            jobs: [
-                { id: 1, title: "Ux designer", detail: "Lorem ipsum"},
-                { id: 2, title: "Web designer", detail: "Lorem ipsum"},
-                { id: 3, title: "App designer", detail: "Lorem ipsum"}
-            ]
+            jobs: []
         }
+    },
+    // Hàm mounted() chạy ngay sau khi component được mount vào DOM
+    // phù hợp để fetch data
+    mounted() {
+        fetch('http://localhost:3000/jobs')
+            .then((res) => res.json())
+            .then(data => this.jobs = data)
+            .catch(err => console.log(err.message));
     }
 }
 </script>

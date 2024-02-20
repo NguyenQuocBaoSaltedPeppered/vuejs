@@ -1,0 +1,7 @@
+{
+    "jobs": [
+        { "title": "LOCODEDI Ux designer", "id": 1, "detail": "Lorem ipsum"},
+        { "title": "LOCODEDI Web designer", "id": 2, "detail": "Lorem ipsum"},
+        { "title": "LOCODEDI App designer", "id": 3, "detail": "Lorem ipsum"}
+    ]
+}
