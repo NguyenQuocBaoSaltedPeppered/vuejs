@@ -1,31 +1,26 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
+    <p>My name is {{ name }} and my age is {{ age }}</p>
     <button @click="handleClick">Click me!</button>
+    <button @click="age+=10">Add 10 to age</button>
+    <input type="text" v-model="name">
   </div>
 </template>
 
 <script>
 import { ref } from 'vue';
 
-
-
 export default {
   name: 'HomeView',
   setup() {
-    console.log("setup")
-
-    const p = ref(null);
-
-    let name = 'BaoNQ';
-    let age = 24;
+    const name = ref('BaoNQ');
+    const age = ref(24);
     const handleClick = () => {
-      console.log(p, p.value);
-      p.value.classList.add('test');
-      p.value.textContent = 'Hello bruh!!!';
+      name.value = 'BaoNQ pro max';
+      age.value++;
     };
-    return { name, age, handleClick, p};
+    return { name, age, handleClick};
   },
 }
 </script>
