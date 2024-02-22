@@ -1,0 +1,24 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Welcome to locodedi blog",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem donec massa sapien faucibus et molestie. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. In fermentum et sollicitudin ac. Semper feugiat nibh sed pulvinar.",
+            "tags": [
+                "news",
+                "noncode",
+                "info"
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Top html & css extensions",
+            "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem donec massa sapien faucibus et molestie. Maecenas volutpat blandit aliquam etiam erat velit scelerisque in. In fermentum et sollicitudin ac. Semper feugiat nibh sed pulvinar.",
+            "tags": [
+                "webdev",
+                "coding",
+                "info"
+            ]
+        }
+    ]
+}
